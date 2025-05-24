@@ -7,11 +7,10 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.urlencoded({extended: true}));
 
-app.get('/', (req, res) =>{
-    res.render('index.html');
-})
+const agendamentoRouter = require('./routers/agendamentoRouter');
+app.use('/', agendamentoRouter);
 
 const PORT = 8080;
 app.listen(PORT, ()=>{
-    console.log('app rodando na porta' + PORT)
-})
+    console.log('app rodando na porta ' + PORT);
+});
